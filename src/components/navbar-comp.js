@@ -72,7 +72,7 @@ const NavbarComp = () => {
           .navbar-nav-scroll {
             min-height: 80px;
           }
-          .nav-link {
+          .nav-link, .nav-item.dropdown {
             min-width: 120px;
             display: flex;
             flex-direction: column;
