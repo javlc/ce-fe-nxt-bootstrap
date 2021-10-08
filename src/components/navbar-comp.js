@@ -20,16 +20,16 @@ const NavbarComp = () => {
             navbarScroll
           >
             <Nav.Link href="#action1">
-              <i className="fas fa-home"></i> Home
+              <i className="fas fa-home"></i> <span>Home</span>
             </Nav.Link>
             <Nav.Link href="#action2">
-              <i className="fas fa-store"></i> Merchant
+              <i className="fas fa-store"></i> <span>Merchant</span>
             </Nav.Link>
             <Nav.Link href="#action3">
-              <i className="fas fa-trophy"></i> Competitors
+              <i className="fas fa-trophy"></i> <span>Competitors</span>
             </Nav.Link>
             <Nav.Link href="#action4">
-              <i className="fas fa-users"></i> Consumers
+              <i className="fas fa-users"></i> <span>Consumers</span>
             </Nav.Link>
             <NavDropdown
               title={
@@ -49,7 +49,7 @@ const NavbarComp = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#">
-              <i className="fas fa-search"></i> Search
+              <i className="fas fa-search"></i> <span>Search</span>
             </Nav.Link>
             {/* <Form className="d-flex">
               <FormControl
@@ -61,11 +61,27 @@ const NavbarComp = () => {
               <Button variant="outline-info">Search</Button>
             </Form> */}
             <Nav.Link href="#action8">
-              <i className="fas fa-user-circle"></i> John
+              <i className="fas fa-user-circle"></i> <span>John</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <>
+        <style type="text/css">
+          {`
+          .navbar-nav-scroll {
+            min-height: 80px;
+          }
+          .nav-link {
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          `}
+        </style>
+      </>
     </Container>
   );
 };
