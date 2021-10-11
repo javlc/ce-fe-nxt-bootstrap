@@ -69,15 +69,17 @@ const NavbarComp = () => {
       <>
         <style type="text/css">
           {`
-          .navbar-nav-scroll {
-            min-height: 80px;
-          }
-          .nav-link, .nav-item.dropdown {
-            min-width: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+          @media screen and (min-width: 991px) {
+            .navbar-nav-scroll {
+              min-height: 80px;
+            }
+            .nav-link, .nav-item.dropdown {
+              min-width: 120px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            }  
           }
           `}
         </style>
