@@ -2,15 +2,25 @@ import Head from "next/head";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import CEMapChart from "../../components/ce-map-chart";
 
 const Dashboard = () => {
   return (
     <Container fluid="xxl">
       <Row>
-        <Col>My first column</Col>
-        <Col>My second column</Col>
-        <Col>My third column</Col>
+        <Col className="half-height">
+          <CEMapChart />
+        </Col>
       </Row>
+      <>
+        <style type="text/css">
+          {`
+          .half-height {
+            min-height: 75vh;
+          }
+          `}
+        </style>
+      </>
     </Container>
   );
 };

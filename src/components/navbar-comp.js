@@ -79,7 +79,7 @@ const NavbarComp = () => {
               flex-direction: column;
               align-items: center;
               justify-content: center;
-            }  
+            }
           }
           `}
         </style>
