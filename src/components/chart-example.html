@@ -36,7 +36,7 @@
             window.addEventListener('DOMContentLoaded', () => {
 
                 async function refresh_map(chart, start_date, end_date, share_by, entities) {
-                    const opts2 = {
+                    /* const opts2 = {
                       start_date: '2021-01-6',
                       end_date: '2021-04-30',
                       entities: [
@@ -72,7 +72,7 @@
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify(opts2)
                     });
-                    const data2 = await res2.json();
+                    const data2 = await res2.json(); */
                     // const response = await fetch('https://stargate-dev.cei.ventures/chart/market_share/map', {
                     const response = await fetch('http://104.196.102.188/chart/market_share/map', {
                         method: 'POST',
@@ -81,8 +81,8 @@
                     });
 
                     const data = await response.json();
-                    // console.log('data: ', data);
-                    console.log('retention data: ', data2);
+                    console.log('data: ', data);
+                    // console.log('retention data: ', data2);
                     const series_data = [];
 
                     console.log('chart.series[0].mapMap: ', chart.series[0].mapMap)

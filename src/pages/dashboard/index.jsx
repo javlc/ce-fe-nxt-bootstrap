@@ -3,15 +3,21 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CEMapChart from "../../components/ce-map-chart";
+import CERetentionChart from "../../components/ce-retention-chart";
 
 const Dashboard = () => {
   return (
     <Container fluid="xxl">
       <Row>
+        <Col>
+          <CERetentionChart />
+        </Col>
+      </Row>
+      {/*       <Row>
         <Col className="half-height">
           <CEMapChart />
         </Col>
-      </Row>
+      </Row> */}
       <>
         <style type="text/css">
           {`
