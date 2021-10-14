@@ -24,6 +24,9 @@ const opts = {
   yAxis: {
     title: {
       text: "Percentage (%)",
+      style: {
+        color: "#eee",
+      },
     },
     labels: {
       style: {
