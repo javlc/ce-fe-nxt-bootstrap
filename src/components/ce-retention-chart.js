@@ -22,6 +22,9 @@ const opts = {
   },
 
   yAxis: {
+    floor: 0,
+    ceiling: 100,
+    min: 0,
     title: {
       text: "Percentage (%)",
       style: {
@@ -39,12 +42,16 @@ const opts = {
     // categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     gridLineColor: "#aaa",
     gridLineWidth: 1,
+    // floor: 0,
+    ceiling: 9,
+    min: -0.15,
+    max: 9.5,
     labels: {
       style: {
         color: "#eee",
       },
       x: 0,
-      y: 20,
+      y: 25,
     },
     accessibility: {
       rangeDescription: "Range: 0 to 9",
@@ -72,6 +79,7 @@ const opts = {
         connectorAllowed: false,
       },
       marker: { enabled: false },
+      pointStart: 0,
     },
   },
 

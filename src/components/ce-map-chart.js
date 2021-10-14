@@ -239,7 +239,7 @@ const options = {
   },
 };
 
-console.log("mapDataUS: ", options.series[0].mapData);
+// console.log("mapDataUS: ", options.series[0].mapData);
 
 // Iterate over the mapMap key (state two-char codes)
 for (const state_code in options.series[0].mapMap) {
