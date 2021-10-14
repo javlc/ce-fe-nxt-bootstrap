@@ -26,15 +26,16 @@ const opts = {
     ceiling: 100,
     min: 0,
     title: {
-      text: "Percentage (%)",
-      style: {
+      text: undefined,
+      /* style: {
         color: "#eee",
-      },
+      }, */
     },
     labels: {
       style: {
         color: "#eee",
       },
+      format: "{text} %",
     },
   },
 
@@ -59,16 +60,16 @@ const opts = {
   },
 
   legend: {
-    layout: "vertical",
-    // backgroundColor: "rgba(255, 255, 255, 0.6)",
-    backgroundColor: {
-      linearGradient: [0, 0, 200, 0],
+    layout: "horizontal",
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    /* backgroundColor: {
+      linearGradient: [0, 100, 1000, 0],
       stops: [
         [0, "rgba(255, 255, 255, 0.9)"],
         [1, "rgba(255, 255, 255, 0.1)"],
       ],
-    },
-    align: "right",
+    }, */
+    align: "center",
     verticalAlign: "bottom",
   },
 
@@ -117,11 +118,18 @@ const opts = {
     },
   ],
 
+  exporting: {
+    chartOptions: {
+      chart: {
+        height: 650,
+      },
+    },
+  },
   responsive: {
     rules: [
       {
         condition: {
-          maxWidth: 500,
+          maxWidth: 780,
         },
         chartOptions: {
           legend: {
