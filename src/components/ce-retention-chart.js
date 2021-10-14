@@ -25,9 +25,24 @@ const opts = {
     title: {
       text: "Percentage (%)",
     },
+    labels: {
+      style: {
+        color: "#eee",
+      },
+    },
   },
 
   xAxis: {
+    // categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    gridLineColor: "#aaa",
+    gridLineWidth: 1,
+    labels: {
+      style: {
+        color: "#eee",
+      },
+      x: 0,
+      y: 20,
+    },
     accessibility: {
       rangeDescription: "Range: 0 to 9",
     },
