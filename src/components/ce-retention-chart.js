@@ -11,6 +11,7 @@ const opts = {
     // backgroundColor: "rgba(255, 255, 255, 0.3)",
     backgroundColor: "rgba(255, 255, 255, 0.5)",
     type: "line",
+    height: (3 / 4) * 100 + "%",
   },
 
   title: {
@@ -22,6 +23,7 @@ const opts = {
   },
 
   yAxis: {
+    gridLineWidth: 0,
     floor: 0,
     ceiling: 100,
     min: 0,
@@ -42,7 +44,7 @@ const opts = {
   xAxis: {
     // categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     gridLineColor: "#aaa",
-    gridLineWidth: 1,
+    gridLineWidth: 0,
     // floor: 0,
     ceiling: 9,
     min: -0.15,
@@ -60,7 +62,7 @@ const opts = {
   },
 
   legend: {
-    layout: "horizontal",
+    layout: "vertical",
     backgroundColor: "rgba(255, 255, 255, 0.7)",
     /* backgroundColor: {
       linearGradient: [0, 100, 1000, 0],
@@ -141,6 +143,27 @@ const opts = {
       },
     ],
   },
+  navigation: {
+    buttonOptions: {
+      // symbolFill: "none",
+      // symbolStroke: "none",
+      theme: {
+        "stroke-width": 0,
+        stroke: "transparent",
+        fill: "transparent",
+        r: 0,
+        states: {
+          hover: {
+            fill: "transparent",
+          },
+          select: {
+            stroke: "transparent",
+            fill: "transparent",
+          },
+        },
+      },
+    },
+  },
 };
 
 const CERetentionChart = (props) => {
@@ -182,7 +205,6 @@ const CERetentionChart = (props) => {
         .highcharts-data-table tr:hover {
             background: #f1f7ff;
         }
-      
         `}
         </style>
       </>
