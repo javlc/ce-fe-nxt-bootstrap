@@ -13,7 +13,8 @@ const opts = {
     // backgroundColor: "rgba(255, 255, 255, 0.3)",
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     type: "spline",
-    height: (3 / 4) * 100 + "%",
+    height: (2.8 / 4) * 100 + "%",
+    width: 636,
   },
 
   title: {
@@ -72,16 +73,16 @@ const opts = {
 
   legend: {
     floating: "true",
-    layout: "horizontal",
+    layout: "vertical",
     align: "center",
-    verticalAlign: "top",
+    verticalAlign: "bottom",
     x: 150,
     y: -70,
     labelFormat: "{name.value}",
     itemStyle: {
       color: "#565656",
     },
-    backgroundColor: "rgba(255, 255, 255, 0)",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     /* backgroundColor: {
       linearGradient: [0, 100, 1000, 0],
       stops: [
@@ -103,9 +104,12 @@ const opts = {
   },
 
   tooltip: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    borderColor: "#aaa",
+    shadow: false,
     headerFormat: "",
     pointFormat:
-      "{series.name.value} ({point.x}): <br><strong>{point.y} %</strong>",
+      "<strong style='font-size:10px;'>{series.name.value}</strong><br><span style='font-size: 10px;'>Period {point.x} ({series.name.type})</span><br><strong style='font-size:14px;'>{point.y} %</strong>",
     shared: false,
   },
 
@@ -113,39 +117,63 @@ const opts = {
     {
       name: {
         value: "Ouai",
-        type: "Mean",
       },
-      data: [100, 85.4, 81.51, 78.95, 76.59, 76.78, 76.37, 74.52, 74.0],
-      color: "#0000FF",
+      id: "Ouai",
+      color: "#222",
+      // color: "#0000FF",
+    },
+    {
+      name: {
+        value: "Nars Cosmetics",
+      },
+      id: "NarsCosmetics",
+      color: "#777",
+      // color: "#FF0000",
     },
     {
       name: {
         value: "Ouai",
-        type: "(Median)",
+        type: "Mean",
+      },
+      data: [100, 85.4, 81.51, 78.95, 76.59, 76.78, 76.37, 74.52, 74.0],
+      color: "#222",
+      // color: "#0000FF",
+      linkedTo: "Ouai",
+    },
+    {
+      name: {
+        value: "Ouai",
+        type: "Median",
       },
       data: [100, 86.12, 81.35, 79.59, 78.16, 77.13, 76.83, 74.52, 74.0],
       dashStyle: "dash",
       // color: "blue",
-      color: "rgba(0, 70, 250, 0.8)",
+      color: "#222",
+      // color: "rgba(0, 70, 250, 0.8)",
+      linkedTo: "Ouai",
     },
     {
       name: {
         value: "Nars Cosmetics",
-        type: "(Mean)",
+        type: "Mean",
       },
       data: [100, 58, 55, 53, 52, 49, 47, 48, 47],
       // color: "red",
-      color: "#FF0000",
+      color: "#777",
+      // color: "#FF0000",
+      linkedTo: "NarsCosmetics",
     },
     {
       name: {
         value: "Nars Cosmetics",
-        type: "(Median)",
+        type: "Median",
       },
       data: [100, 61, 58, 55, 54, 51, 52, 48, 47],
       dashStyle: "dash",
       // color: "red",
-      color: "rgba(200, 0, 0, 0.8)",
+      color: "#777",
+      // color: "rgba(200, 0, 0, 0.8)",
+      linkedTo: "NarsCosmetics",
     },
   ],
 
