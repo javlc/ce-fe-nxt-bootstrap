@@ -7,7 +7,7 @@ import CERetentionChart from "../../components/ce-retention-chart";
 
 const Dashboard = () => {
   return (
-    <Container fluid="xxl">
+    <Container fluid="xxl" className="custom-height">
       <Row>
         <Col xs={12} lg={{ span: 6, offset: 3 }}>
           <CERetentionChart />
@@ -21,6 +21,9 @@ const Dashboard = () => {
       <>
         <style type="text/css">
           {`
+          .custom-height {
+            max-height: 500px;
+          }
           .half-height {
             min-height: 75vh;
           }
