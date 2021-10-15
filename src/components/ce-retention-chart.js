@@ -7,10 +7,12 @@ if (typeof Highcharts === "object") {
 }
 
 const opts = {
+  credits: { enabled: false },
+
   chart: {
     // backgroundColor: "rgba(255, 255, 255, 0.3)",
-    backgroundColor: "rgba(255, 255, 255, 0.5)",
-    type: "line",
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    type: "spline",
     height: (3 / 4) * 100 + "%",
   },
 
@@ -23,6 +25,8 @@ const opts = {
   },
 
   yAxis: {
+    lineWidth: 1,
+    lineColor: "#565656",
     gridLineWidth: 0,
     floor: 0,
     ceiling: 100,
@@ -35,23 +39,25 @@ const opts = {
     },
     labels: {
       style: {
-        color: "#eee",
+        color: "#565656",
       },
-      format: "{text} %",
+      format: "{text}%",
     },
+    tickInterval: 25,
   },
 
   xAxis: {
     // categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-    gridLineColor: "#aaa",
+    lineColor: "#565656",
+    gridLineColor: "#565656",
     gridLineWidth: 0,
     // floor: 0,
     ceiling: 9,
-    min: -0.15,
-    max: 9.5,
+    // min: -0.15,
+    // max: 9.9,
     labels: {
       style: {
-        color: "#eee",
+        color: "#565656",
       },
       x: 0,
       y: 25,
@@ -59,11 +65,23 @@ const opts = {
     accessibility: {
       rangeDescription: "Range: 0 to 9",
     },
+    maxPadding: 0.2,
+    tickInterval: 1,
+    tickLength: 0,
   },
 
   legend: {
-    layout: "vertical",
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    floating: "true",
+    layout: "horizontal",
+    align: "center",
+    verticalAlign: "top",
+    x: 150,
+    y: -70,
+    labelFormat: "{name.value}",
+    itemStyle: {
+      color: "#565656",
+    },
+    backgroundColor: "rgba(255, 255, 255, 0)",
     /* backgroundColor: {
       linearGradient: [0, 100, 1000, 0],
       stops: [
@@ -71,8 +89,6 @@ const opts = {
         [1, "rgba(255, 255, 255, 0.1)"],
       ],
     }, */
-    align: "center",
-    verticalAlign: "bottom",
   },
 
   plotOptions: {
@@ -88,31 +104,44 @@ const opts = {
 
   tooltip: {
     headerFormat: "",
-    pointFormat: "{series.name} ({point.x}): <br><strong>{point.y} %</strong>",
+    pointFormat:
+      "{series.name.value} ({point.x}): <br><strong>{point.y} %</strong>",
     shared: false,
   },
 
   series: [
     {
-      name: "Ouai (Mean)",
+      name: {
+        value: "Ouai",
+        type: "Mean",
+      },
       data: [100, 85.4, 81.51, 78.95, 76.59, 76.78, 76.37, 74.52, 74.0],
       color: "#0000FF",
     },
     {
-      name: "Ouai (Median)",
+      name: {
+        value: "Ouai",
+        type: "(Median)",
+      },
       data: [100, 86.12, 81.35, 79.59, 78.16, 77.13, 76.83, 74.52, 74.0],
       dashStyle: "dash",
       // color: "blue",
       color: "rgba(0, 70, 250, 0.8)",
     },
     {
-      name: "Nars Cosmetics (Mean)",
+      name: {
+        value: "Nars Cosmetics",
+        type: "(Mean)",
+      },
       data: [100, 58, 55, 53, 52, 49, 47, 48, 47],
       // color: "red",
       color: "#FF0000",
     },
     {
-      name: "Nars Cosmetics (Median)",
+      name: {
+        value: "Nars Cosmetics",
+        type: "(Median)",
+      },
       data: [100, 61, 58, 55, 54, 51, 52, 48, 47],
       dashStyle: "dash",
       // color: "red",

@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <Container fluid="xxl">
       <Row>
-        <Col xs={12} lg={{ span: 8, offset: 2 }}>
+        <Col xs={12} lg={{ span: 6, offset: 3 }}>
           <CERetentionChart />
         </Col>
       </Row>
