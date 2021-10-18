@@ -151,6 +151,9 @@ const CEMacroFilter = () => {
             text-align: left;
             min-width: 7em;
           }
+          .dropdown .dropdown-toggle::after {
+            color: #1f1f1f;
+          }
           .ce-pill-group {
             position: absolute;
             left: 4em;
