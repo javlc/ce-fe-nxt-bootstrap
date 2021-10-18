@@ -146,7 +146,10 @@ const CEMacroFilter = () => {
           }
           .dropdown > button span {
             color: #C4C4C4;
-            margin-left: 0.75em;
+            margin: 0 0.5em;
+            display: inline-block;
+            text-align: left;
+            min-width: 7em;
           }
           .ce-pill-group {
             position: absolute;
