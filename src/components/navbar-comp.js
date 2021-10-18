@@ -67,7 +67,6 @@ const NavbarComp = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <CEMacroFilter />
       <>
         <style type="text/css">
           {`
