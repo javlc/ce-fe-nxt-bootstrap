@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col";
 // import Dropdown from "@restart/ui/esm/Dropdown";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import Badge from "react-bootstrap/Badge";
 
 const CEMacroFilter = () => {
   return (
@@ -82,9 +83,17 @@ const CEMacroFilter = () => {
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button variant="light" size="sm">
+          <Button variant="light" size="sm" className="ce-btn-plus">
             <i className="fas fa-plus"></i>
           </Button>
+          <div className="ce-pill-group">
+            <Badge pill bg="ce-dark">
+              Ouai
+            </Badge>
+            <Badge pill bg="ce-dark">
+              Nars Cosmetics
+            </Badge>
+          </div>
         </Col>
       </Row>
       <style type="text/css">
@@ -95,6 +104,7 @@ const CEMacroFilter = () => {
           }
           .ce-macro-col {
             padding: 0;
+            position: relative;
           }
           .ce-macro-col > button {
             color: #E9E9E9;
@@ -107,7 +117,7 @@ const CEMacroFilter = () => {
             background-color: #585757;
             border-color: #585757;
           }
-          .ce-macro-col > button:last-child {
+          .ce-macro-col > button.ce-btn-plus {
             background-color: #727070;
             border-color: #727070;
           } 
@@ -137,6 +147,22 @@ const CEMacroFilter = () => {
           .dropdown > button span {
             color: #C4C4C4;
             margin-left: 0.75em;
+          }
+          .ce-pill-group {
+            position: absolute;
+            left: 4em;
+            top: 50%;
+            transform: translateY(-55%);
+          }
+          .ce-pill-group .bg-ce-dark {
+            background-color: #313131;
+            color: #E9E9E9;
+            padding: 0.5em 1em;
+            font-weight: 500;
+            font-style: normal;
+          }
+          .ce-pill-group .bg-ce-dark:not(:first-child) {
+            margin-left: 0.25em;
           }
           `}
       </style>
