@@ -17,7 +17,7 @@ const CEMacroFilter = () => {
       <Row>
         <Col className="d-flex ce-macro-col">
           <Button variant="ce-dark" size="sm">
-            <i className="fas fa-window-restore"></i>
+            <i className="far fa-newspaper"></i>
           </Button>
 
           <Form className="d-flex">
@@ -90,7 +90,7 @@ const CEMacroFilter = () => {
       <style type="text/css">
         {`
           .ce-macro-filter {
-            padding: 0.5em;
+            padding: 0.5em 1.25em;
             background-color: #484848;
           }
           .ce-macro-col {
@@ -136,6 +136,7 @@ const CEMacroFilter = () => {
           }
           .dropdown > button span {
             color: #C4C4C4;
+            margin-left: 0.75em;
           }
           `}
       </style>
