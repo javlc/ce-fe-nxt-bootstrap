@@ -67,14 +67,16 @@
                       ],
                       first_purchase_since: 2
                     }
-                    const res2 = await fetch('http://35.231.227.169/chart/retention', {
+                    // const res2 = await fetch('http://35.231.227.169/chart/retention', {
+                    const res2 = await fetch('http://localhost:80/chart/retention', {
                       method: 'POST',
                       headers: {'Content-Type': 'application/json'},
                       body: JSON.stringify(opts2)
                     });
                     const data2 = await res2.json();
                     // const response = await fetch('https://stargate-dev.cei.ventures/chart/market_share/map', {
-                    const response = await fetch('http://35.231.227.169/chart/market_share/map', {
+                    // const response = await fetch('http://35.231.227.169/chart/market_share/map', {
+                    const response = await fetch('http://localhost:80/chart/market_share/map', {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({start_date: start_date, end_date: end_date, share_by: share_by, entities: entities})
