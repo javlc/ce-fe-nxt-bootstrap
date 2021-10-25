@@ -1,6 +1,5 @@
 import Highcharts from "highcharts/highmaps";
 import HighchartsExporting from "highcharts/modules/exporting";
-import HC_map from "highcharts/modules/map";
 import HighchartsReact from "highcharts-react-official";
 
 if (typeof Highcharts === "object") {
