@@ -27,16 +27,22 @@ const options = {
   },
   xAxis: {
     categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8"],
+    lineWidth: 0,
+    visible: true,
+    opposite: true,
   },
   yAxis: {
     categories: ["Mean", "Median"],
     title: null,
     reversed: true,
-    type: "percentage",
+    visible: true,
     labels: {
       enabled: true,
       step: 1,
+      align: "right",
     },
+    gridLineWidth: 0,
+    // gridLineColor: "transparent",
   },
   colorAxis: {
     stops: [
@@ -81,12 +87,20 @@ const options = {
       },
     },
   ],
+  exporting: {
+    buttons: {
+      contextButton: {
+        enabled: false,
+      },
+    },
+  },
 };
 const options2 = {
   credits: { enabled: false },
 
   chart: {
     type: "heatmap",
+    // marginTop: 70,
   },
   title: {
     text: "PERIODS AFTER INITIAL PURCHASE",
@@ -98,9 +112,14 @@ const options2 = {
   },
   legend: {
     enabled: false,
+    align: "right",
+    layout: "vertical",
   },
   xAxis: {
     categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8"],
+    visible: true,
+    lineWidth: 0,
+    opposite: true,
   },
   yAxis: {
     categories: [
@@ -114,8 +133,13 @@ const options2 = {
       "Aug 2021",
       "Sep 2021",
     ],
+    gridLineWidth: 0,
+    visible: true,
     title: null,
     reversed: true,
+    labels: {
+      enabled: true,
+    },
   },
   colorAxis: {
     stops: [
@@ -184,6 +208,13 @@ const options2 = {
       },
     },
   ],
+  exporting: {
+    buttons: {
+      contextButton: {
+        enabled: false,
+      },
+    },
+  },
 };
 
 const CERetentionGrid = (props) => {
