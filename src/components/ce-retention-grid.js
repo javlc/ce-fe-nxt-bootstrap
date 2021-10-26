@@ -232,6 +232,7 @@ const CERetentionGrid = (props) => {
         options={options}
         {...props}
       ></HighchartsReact>
+      <br />
       <HighchartsReact
         constructorType={"mapChart"}
         highcharts={Highcharts}
