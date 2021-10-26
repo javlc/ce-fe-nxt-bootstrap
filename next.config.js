@@ -7,4 +7,13 @@ const debug = process.env.NODE_ENV !== "production";
 module.exports = {
   assetPrefix: !debug ? "/ce-fe-nxt-bootstrap/" : "",
   trailingSlash: true,
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/" },
+      "/dashboard": { page: "/dashboard" },
+    };
+  },
 };

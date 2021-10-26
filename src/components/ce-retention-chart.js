@@ -1,17 +1,16 @@
 import Highcharts from "highcharts/highcharts";
 import HighchartsExporting from "highcharts/modules/exporting";
 import HighchartsReact from "highcharts-react-official";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Stack from "react-bootstrap/Stack";
+import CERetentionFilters from "./ce-retention-filters";
 
 if (typeof Highcharts === "object") {
   HighchartsExporting(Highcharts);
 }
-
+const filterOpts = {
+  frequency: ["Daily", "Weekly", "Monthly", "Quarterly", "Yearly"],
+  type: ["Customers", "Sales"],
+  calcType: ["Mean", "Median", "Mean & Median"],
+};
 const opts = {
   credits: { enabled: false },
 
@@ -232,59 +231,10 @@ const opts = {
 const CERetentionChart = (props) => {
   return (
     <>
-      <Stack direction="horizontal" gap={3} className="ce-ret-title-filters">
-        <span>Retention Comparison</span>
-        <i className="fas fa-question-circle"></i>
-        <i className="fas fa-expand-alt small"></i>
-        <i className="fas fa-filter ms-auto small"></i>
-        <div className="vr" />
-        <i className="fas fa-cog"></i>
-      </Stack>
-
-      <Stack
-        direction="horizontal"
-        gap={1}
-        className="d-flex ce-ret-chart-controls px-3"
-      >
-        <DropdownButton
-          variant="light"
-          title={
-            <>
-              <span>Monthly</span>
-            </>
-          }
-          size="sm"
-        >
-          <Dropdown.Item href="#/action-1" active>
-            Monthly
-          </Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Weekly</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Yearly</Dropdown.Item>
-        </DropdownButton>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown-basic" size="sm">
-            <span>Customers</span>
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown-basic" size="sm">
-            <span>Mean & Median</span>
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <i className="fas fa-user-plus small ms-2"></i>
-      </Stack>
+      <CERetentionFilters
+        title={"Retention Comparison"}
+        filterOpts={filterOpts}
+      />
       <HighchartsReact
         highcharts={Highcharts}
         options={opts}
@@ -292,68 +242,20 @@ const CERetentionChart = (props) => {
       ></HighchartsReact>
       <style type="text/css">
         {`
-        .ce-ret-title-filters {
-          background-color: #fff;
-          color: #000;
-          padding: 3px 10px;
+        .highcharts-figure, .highcharts-data-table table {
+          min-width: 360px; 
+          max-width: 800px;
+          margin: 1em auto;
         }
-          .ce-ret-title-filters span {
-            font-weight: 700;
-            font-style: normal;
-            font-size: 18px;
-          }
-          .ce-ret-title-filters .fas {
-            color: #cccccc;
-          }
-          .ce-ret-title-filters .fa-expand-alt {
-            color: #000;
-          }
-          .ce-ret-title-filters .fa-filter {
-            font-size: 0.6em;
-          }
-          .ce-ret-title-filters .vr {
-            height: 0.9em;
-            min-height: 0.7em;
-            align-self: center;
-          }
-      
-      .ce-ret-chart-controls {
-        background-color: #ECECEC;
-        height: 30px;
-      }
-      .ce-ret-chart-controls .dropdown > button {
-        background-color: #F7F7F7;
-        border-radius: 10px;
-        border-color:  #F7F7F7;
-        font-size: 10px;
-      }
-      .ce-ret-chart-controls .dropdown > button span {
-        background-color: #F7F7F7;
-        color: #3E3E3E;
-        margin: 0;
-        min-width: 8em;
-      }
-      .ce-ret-chart-controls .fas {
-        color: #a5a5a5;
-      }
-      .ce-ret-chart-controls .btn-sm {
-        padding: 0.12rem 0.5rem;
-      }
-
-    .highcharts-figure, .highcharts-data-table table {
-      min-width: 360px; 
-      max-width: 800px;
-      margin: 1em auto;
-    }
-      .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-      }
+        .highcharts-data-table table {
+          font-family: Verdana, sans-serif;
+          border-collapse: collapse;
+          border: 1px solid #EBEBEB;
+          margin: 10px auto;
+          text-align: center;
+          width: 100%;
+          max-width: 500px;
+        }
         .highcharts-data-table caption {
           padding: 1em 0;
           font-size: 1.2em;

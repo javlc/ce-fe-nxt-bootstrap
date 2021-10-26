@@ -1,10 +1,17 @@
 import Highcharts from "highcharts/highmaps";
 import HighchartsExporting from "highcharts/modules/exporting";
 import HighchartsReact from "highcharts-react-official";
+import CERetentionFilters from "./ce-retention-filters";
 
 if (typeof Highcharts === "object") {
   HighchartsExporting(Highcharts);
 }
+
+const filterOpts = {
+  frequency: ["Daily", "Weekly", "Monthly", "Quarterly", "Yearly"],
+  type: ["%", "#"],
+  calcType: ["Mean", "Median", "Mean & Median"],
+};
 
 const options = {
   credits: { enabled: false },
@@ -99,7 +106,6 @@ const options2 = {
 
   chart: {
     type: "heatmap",
-    // marginTop: 70,
   },
   title: {
     text: "PERIODS AFTER INITIAL PURCHASE",
@@ -219,6 +225,7 @@ const options2 = {
 const CERetentionGrid = (props) => {
   return (
     <>
+      <CERetentionFilters title={"Retention"} filterOpts={filterOpts} />
       <HighchartsReact
         constructorType={"mapChart"}
         highcharts={Highcharts}
