@@ -5,7 +5,7 @@
 const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  basePath: "/ce-fe-nxt-bootstrap",
+  basePath: !debug ? "/ce-fe-nxt-bootstrap" : "",
   assetPrefix: !debug ? "/ce-fe-nxt-bootstrap/" : "",
   // trailingSlash: true,
   exportPathMap: async function (

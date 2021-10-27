@@ -58,11 +58,70 @@ const options = {
       [1, "#222222"],
     ],
   },
-  // tooltip: {},
+  tooltip: {
+    headerFormat: "",
+    pointFormatter: function () {
+      let periodStr = this.x === 1 ? " period" : " periods";
+      return (
+        "<span style='font-size:10px;'>" +
+        this.series.chart.yAxis[0].categories[this.y] +
+        "</span><br /><span style='font-size: 10px;'>After " +
+        this.x +
+        periodStr +
+        "</span><br /><strong style='font-size:10px;'>" +
+        this.options.value +
+        "%</strong>"
+      );
+    },
+  },
   /* plotOptions: {
     dataLabels: { enabled: true, format: "{point[2]} %" },
   }, */
   series: [
+    {
+      name: "Total",
+      borderWidth: 5,
+      borderColor: "white",
+      data: [
+        [0, 0, 6065],
+        [0, 1, 5781],
+      ],
+      dataLabels: {
+        enabled: true,
+        formatter: function () {
+          // console.log(this);
+          if (this.point.options.value > 1000000) {
+            return (
+              Highcharts.numberFormat(this.point.options.value / 1000000, 1) +
+              "M"
+            );
+          } else if (this.point.options.value > 1000) {
+            return (
+              Highcharts.numberFormat(this.point.options.value / 1000, 1) + "K"
+            );
+          } else {
+            return this.point.options.value;
+          }
+        },
+      },
+      tooltip: {
+        pointFormatter: function () {
+          // console.log(this);
+          return (
+            '<span style="font-size:10px;">' +
+            this.series.chart.yAxis[0].categories[this.y] +
+            "</span>" +
+            "<br /><span style='font-size:10px;'>Cohort " +
+            this.series.name +
+            "</span>" +
+            "<br />" +
+            "<strong style='font-size:10px;'>" +
+            this.options.value +
+            "</strong>"
+          );
+        },
+      },
+    },
     {
       name: "",
       borderWidth: 5,
@@ -120,6 +179,11 @@ const options2 = {
     align: "right",
     layout: "vertical",
   },
+  /* plotOptions: {
+    series: {
+      pointWidth: 20,
+    },
+  }, */
   xAxis: {
     categories: ["0", "1", "2", "3", "4", "5", "6", "7", "8"],
     visible: true,
@@ -154,8 +218,85 @@ const options2 = {
       [1, "#222222"],
     ],
   },
-  // tooltip: {},
+  tooltip: {
+    backgroundColor: "rgba(255,255,255,0.9)",
+    borderColor: "#aaa",
+    shadow: false,
+    headerFormat: "",
+    pointFormatter: function () {
+      // console.log(this);
+      // return this.series.chart.yAxis[0].categories[this.y];
+      let periodStr = this.x === 1 ? " period" : " periods";
+      return (
+        "<span style='font-size:10px;'>" +
+        this.series.chart.yAxis[0].categories[this.y] +
+        "</span><br /><span style='font-size: 10px;'>After " +
+        this.x +
+        periodStr +
+        "</span><br /><strong style='font-size:10px;'>" +
+        this.options.value +
+        "%</strong>"
+      );
+    },
+    pointFormat:
+      "<strong style='font-size:10px;'>{point.series.name}</strong><br><span style='font-size: 10px;'>{point.series.chart.yAxis[0].categories[point.options.y]} {point.options.x}</span><br><strong style='font-size:14px;'>{point.options.value} %</strong>",
+    shared: false,
+  },
   series: [
+    {
+      name: "Total",
+      borderWidth: 5,
+      borderColor: "white",
+      data: [
+        [0, 0, 8021],
+        [0, 1, 6738],
+        [0, 2, 6226],
+        [0, 3, 5351],
+        [0, 4, 5722],
+        [0, 5, 5007],
+        [0, 6, 5840],
+        [0, 7, 5617],
+        [0, 8, 5717],
+      ],
+      dataLabels: {
+        enabled: true,
+        formatter: function () {
+          // console.log(this);
+          if (this.point.options.value > 1000000) {
+            return (
+              Highcharts.numberFormat(this.point.options.value / 1000000, 1) +
+              "M"
+            );
+          } else if (this.point.options.value > 1000) {
+            return (
+              Highcharts.numberFormat(this.point.options.value / 1000, 1) + "K"
+            );
+          } else {
+            return this.point.options.value;
+          }
+        },
+      },
+      tooltip: {
+        style: {
+          fontSize: 10,
+        },
+        pointFormatter: function () {
+          // console.log(this);
+          return (
+            '<span style="font-size:10px;">' +
+            this.series.chart.yAxis[0].categories[this.y] +
+            "</span>" +
+            "<br /><span style='font-size:10px;'>Cohort " +
+            this.series.name +
+            "</span>" +
+            "<br />" +
+            "<strong style='font-size:10px;'>" +
+            this.options.value +
+            "</strong>"
+          );
+        },
+      },
+    },
     {
       name: "",
       borderWidth: 5,
@@ -232,13 +373,20 @@ const CERetentionGrid = (props) => {
         options={options}
         {...props}
       ></HighchartsReact>
-      <br />
+      <div className="separator"></div>
       <HighchartsReact
         constructorType={"mapChart"}
         highcharts={Highcharts}
         options={options2}
         {...props}
       ></HighchartsReact>
+      <style type="text/css">
+        {`
+        .separator {
+          height: 0.5em;
+        }
+        `}
+      </style>
     </>
   );
 };
